@@ -1,0 +1,22 @@
+.header {
+    text-align: center;
+    border: 2px solid gray;
+    background-color: azure;
+}
+
+#overview-header {
+    font-family: fantasy;
+    text-align: center;
+}
+
+#title-heading {
+    font-family: cursive;
+    text-align: center;
+    text-decoration: dotted;
+}
+
+li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}

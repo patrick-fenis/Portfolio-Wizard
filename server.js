@@ -4,7 +4,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express();
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb://localhost:27017/portfolio-wizard'
+const mongoURI = process.env.MONGOURI
 const PORT = process.env.PORT
 
 ///  Middleware  ///
@@ -16,6 +16,58 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/public', express.static('public'))
 
+///  Model Import  ///
+
+const Holdings = require('./models/portfolio.js')
+
+///  Initial Seed  ///
+
+// app.get('/seed', async (req, res) => {
+//     const holdings = [
+//         {
+//             tickerSymbol: 'IONQ',
+//             companyName: 'IONQ Inc',
+//             quantity: 1000,
+//             purchasePrice: 4.35,
+//             long: true,
+//         },
+//         {
+//             tickerSymbol: 'LMT',
+//             companyName: 'Lockheed Martin',
+//             quantity: 100,
+//             purchasePrice: 235.45,
+//             long: true
+//         }
+//     ]
+  
+//     try {
+//       const seedItems = await Holdings.create(holdings)
+//       res.send(seedItems)
+//     } catch (err) {
+//       res.send(err.message)
+//     }
+//   })
+
+
+///  Initial Routes  ///
+
+app.get('/overview', (req, res) => {
+    Holdings.find((err, holdings) => {
+        if(err) {
+            console.log(err.message)
+        } else {
+            res.render('index.ejs', {
+                currentHoldings: holdings
+            })
+        }
+    })
+})
+
+app.get('/test', (req, res) => {
+    Holdings.find((err, data) => {
+        res.send(data)
+    })
+})
 
 
 
