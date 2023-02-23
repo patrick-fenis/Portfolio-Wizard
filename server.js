@@ -6,6 +6,7 @@ const app = express();
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGOURI
 const PORT = process.env.PORT
+const stockController = require('./controllers/stocks.js')
 
 ///  Middleware  ///
 
@@ -15,6 +16,7 @@ app.use(methodOverride('_method'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/public', express.static('public'))
+app.use(stockController)
 
 ///  Model Import  ///
 
@@ -48,96 +50,6 @@ const { update } = require('./models/portfolio.js');
 //       res.send(err.message)
 //     }
 //   })
-
-
-///  Initial Routes  ///
-
-app.get('/overview', (req, res) => {
-    Holdings.find((err, holdings) => {
-        if(err) {
-            console.log(err.message)
-        } else {
-            res.render('index.ejs', {
-                currentHoldings: holdings
-            })
-        }
-    })
-})
-
-app.get('/overview/new', (req, res) => {
-    res.render('new.ejs')
-})
-
-
-app.get('/overview/:stockId', (req, res) => {
-    Holdings.findById(req.params.stockId, (err, stock) => {
-        if(err) {
-            console.log(err.message)
-        } else {
-            res.render('show.ejs', {
-                stockInfo: stock,
-                index: req.params.stockId
-            })
-        }
-    })
-})
-
-app.get('/overview/:stockId/edit', (req, res) => {
-    Holdings.findById(req.params.stockId, (err, foundStock) => {
-        res.render('edit.ejs', {
-            stockInfo: foundStock
-        })
-    })
-})
-
-app.post('/overview', (req, res) => {
-    Holdings.create(req.body, (err, createdStock) => {
-        if(err) {
-            console.log(err.message)
-            res.send(err.message)
-        } else {
-            res.redirect('/overview'),
-            console.log(createdStock)
-        }
-    })
-})
-
-app.delete('/overview/:stockId', (req, res) => {
-    Holdings.findByIdAndDelete(req.params.stockId, (err, deletedStock) => {
-        if(err) {
-            res.send(err.message)
-        } else {
-            res.redirect('/overview'),
-            console.log(deletedStock)
-        }
-    })
-})
-
-app.put('/overview/:stockId', (req, res) => {
-    Holdings.findByIdAndUpdate(req.params.stockId, req.body, {new: true}, (err, updatedStock) => {
-        if(err) {
-            res.send(err.message)
-        } else {
-            res.redirect(`/overview/${req.params.stockId}`),
-            console.log(updatedStock)
-        }
-    })
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
