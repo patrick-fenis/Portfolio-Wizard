@@ -1,0 +1,10 @@
+<%- include('./partials/header.ejs') %>
+
+<body class="stock-info">
+    <h2><%=stockInfo.companyName%></h2>
+    <h3><%=stockInfo.tickerSymbol%></h3>
+    <div>
+        <span>Shares: <%=stockInfo.quantity%></span>
+        <span>Purchase Price: $<%=stockInfo.purchasePrice%></span>
+    </div>
+</body>

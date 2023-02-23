@@ -5,9 +5,8 @@
 <body>
     <div>
         <% for(let i = 0; i < currentHoldings.length; i++) { %>
-        <h2><%=currentHoldings[i].tickerSymbol%></h2>
-        <h3><%=currentHoldings[i].companyName%></h3>
-        <span>Shares: <%=currentHoldings[i].quantity%></span><span>Purchase Price: $<%=currentHoldings[i].purchasePrice%></span>
+        <h2><a href="/overview/<%=currentHoldings[i]._id%>"><%=currentHoldings[i].tickerSymbol%></a></h2>
+        <h3>Shares: <%=currentHoldings[i].quantity%></h3>
         <% } %>
     </div>
 </body>

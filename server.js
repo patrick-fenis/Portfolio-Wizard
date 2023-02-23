@@ -63,6 +63,19 @@ app.get('/overview', (req, res) => {
     })
 })
 
+app.get('/overview/:stockId', (req, res) => {
+    Holdings.findById(req.params.stockId, (err, stock) => {
+        if(err) {
+            console.log(err.message)
+        } else {
+            res.render('show.ejs', {
+                stockInfo: stock,
+                index: req.params.stockId
+            })
+        }
+    })
+})
+
 app.get('/test', (req, res) => {
     Holdings.find((err, data) => {
         res.send(data)
