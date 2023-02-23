@@ -1,0 +1,16 @@
+<%- include('./partials/header.ejs') %>
+<body>
+    <form method="POST" action="/overview">
+        <fieldset>
+            <label for="tickerSymbol">Ticker Symbol</label>
+            <input id="tickerSymbol" type="text" name="tickerSymbol" placeholder="ex. GM">
+            <label for="companyName">Company Name</label>
+            <input id="companyName" type="text" name="companyName" placeholder="ex. General Motors">
+            <label for="quantity">Shares Bought</label>
+            <input id="quantity" type="number" name="quantity" placeholder="Shares">
+            <label for="purchasePrice">Purchase Price</label>
+            <input id="purchasePrice" type="number" name="purchasePrice" placeholder="Purchase Price">
+        </fieldset>
+        <button>Add to Portfolio</button>
+    </form>
+</body>

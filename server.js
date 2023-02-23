@@ -63,6 +63,11 @@ app.get('/overview', (req, res) => {
     })
 })
 
+app.get('/overview/new', (req, res) => {
+    res.render('new.ejs')
+})
+
+
 app.get('/overview/:stockId', (req, res) => {
     Holdings.findById(req.params.stockId, (err, stock) => {
         if(err) {
@@ -72,6 +77,17 @@ app.get('/overview/:stockId', (req, res) => {
                 stockInfo: stock,
                 index: req.params.stockId
             })
+        }
+    })
+})
+
+app.post('/overview', (req, res) => {
+    Holdings.create(req.body, (err, createdStock) => {
+        if(err) {
+            console.log(err.message)
+            res.send(err.message)
+        } else {
+            res.redirect('/overview')
         }
     })
 })
