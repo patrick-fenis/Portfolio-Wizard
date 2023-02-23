@@ -81,6 +81,14 @@ app.get('/overview/:stockId', (req, res) => {
     })
 })
 
+app.get('/overview/:stockId/edit', (req, res) => {
+    Holdings.findById(req.params.stockId, (err, foundStock) => {
+        res.render('edit.ejs', {
+            stockInfo: foundStock
+        })
+    })
+})
+
 app.post('/overview', (req, res) => {
     Holdings.create(req.body, (err, createdStock) => {
         if(err) {
@@ -92,11 +100,15 @@ app.post('/overview', (req, res) => {
     })
 })
 
-app.get('/test', (req, res) => {
-    Holdings.find((err, data) => {
-        res.send(data)
+app.put('/overview/:stockId', (req, res) => {
+    Holdings.findByIdAndUpdate(req.params.stockId, req.body, {new: true}, (err, updatedStock) => {
+        res.redirect(`/overview/${req.params.stockId}`)
     })
 })
+
+
+
+
 
 
 

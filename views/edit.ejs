@@ -1,0 +1,16 @@
+<%- include('./partials/header.ejs') %>
+<body>
+    <form action="/overview/<%=stockInfo._id%>/?_method=PUT" method="POST">
+        <fieldset>
+            <label for="tickerSymbol">Ticker Symbol</label>
+            <input id="tickerSymbol" type="text" name="tickerSymbol" value="<%=stockInfo.tickerSymbol%>">
+            <label for="companyName">Company Name</label>
+            <input id="companyName" type="text" name="companyName" value="<%=stockInfo.companyName%>">
+            <label for="quantity">Shares Bought</label>
+            <input id="quantity" type="number" name="quantity" value="<%=stockInfo.quantity%>">
+            <label for="purchasePrice">Purchase Price</label>
+            <input id="purchasePrice" type="number" name="purchasePrice" value="<%=stockInfo.purchasePrice%>">
+        </fieldset>
+        <button>Save Changes</button>
+    </form>
+</body>
