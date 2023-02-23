@@ -18,7 +18,8 @@ app.use('/public', express.static('public'))
 
 ///  Model Import  ///
 
-const Holdings = require('./models/portfolio.js')
+const Holdings = require('./models/portfolio.js');
+const { update } = require('./models/portfolio.js');
 
 ///  Initial Seed  ///
 
@@ -95,14 +96,31 @@ app.post('/overview', (req, res) => {
             console.log(err.message)
             res.send(err.message)
         } else {
-            res.redirect('/overview')
+            res.redirect('/overview'),
+            console.log(createdStock)
+        }
+    })
+})
+
+app.delete('/overview/:stockId', (req, res) => {
+    Holdings.findByIdAndDelete(req.params.stockId, (err, deletedStock) => {
+        if(err) {
+            res.send(err.message)
+        } else {
+            res.redirect('/overview'),
+            console.log(deletedStock)
         }
     })
 })
 
 app.put('/overview/:stockId', (req, res) => {
     Holdings.findByIdAndUpdate(req.params.stockId, req.body, {new: true}, (err, updatedStock) => {
-        res.redirect(`/overview/${req.params.stockId}`)
+        if(err) {
+            res.send(err.message)
+        } else {
+            res.redirect(`/overview/${req.params.stockId}`),
+            console.log(updatedStock)
+        }
     })
 })
 
