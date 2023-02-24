@@ -40,13 +40,13 @@ router.get('/overview/:stockId/edit', (req, res) => {
     })
 })
 
-router.post('/overview', (req, res) => {
+router.post('/', (req, res) => {
     Holdings.create(req.body, (err, createdStock) => {
         if(err) {
             console.log(err.message)
             res.send(err.message)
         } else {
-            res.redirect('/overview'),
+            res.redirect('/'),
             console.log(createdStock)
         }
     })
@@ -57,7 +57,7 @@ router.delete('/overview/:stockId', (req, res) => {
         if(err) {
             res.send(err.message)
         } else {
-            res.redirect('/overview'),
+            res.redirect('/'),
             console.log(deletedStock)
         }
     })
