@@ -23,33 +23,33 @@ app.use(stockController)
 const Holdings = require('./models/portfolio.js');
 const { update } = require('./models/portfolio.js');
 
-///  Initial Seed  ///
+/  Initial Seed  ///
 
-// app.get('/seed', async (req, res) => {
-//     const holdings = [
-//         {
-//             tickerSymbol: 'IONQ',
-//             companyName: 'IONQ Inc',
-//             quantity: 1000,
-//             purchasePrice: 4.35,
-//             long: true,
-//         },
-//         {
-//             tickerSymbol: 'LMT',
-//             companyName: 'Lockheed Martin',
-//             quantity: 100,
-//             purchasePrice: 235.45,
-//             long: true
-//         }
-//     ]
+app.get('/seed', async (req, res) => {
+    const holdings = [
+        {
+            tickerSymbol: 'IONQ',
+            companyName: 'IONQ Inc',
+            quantity: 1000,
+            purchasePrice: 4.35,
+            long: true,
+        },
+        {
+            tickerSymbol: 'LMT',
+            companyName: 'Lockheed Martin',
+            quantity: 100,
+            purchasePrice: 235.45,
+            long: true
+        }
+    ]
   
-//     try {
-//       const seedItems = await Holdings.create(holdings)
-//       res.send(seedItems)
-//     } catch (err) {
-//       res.send(err.message)
-//     }
-//   })
+    try {
+      const seedItems = await Holdings.create(holdings)
+      res.send(seedItems)
+    } catch (err) {
+      res.send(err.message)
+    }
+  })
 
 
 
