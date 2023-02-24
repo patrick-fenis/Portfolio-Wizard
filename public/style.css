@@ -39,7 +39,7 @@ button {
     justify-content: space-between;
     width: 100%;
 }
-#overview-header {
+header {
     font-family: fantasy;
     text-align: center;
 }
@@ -94,6 +94,15 @@ input[type=number] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+dt {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+dd {
+    padding-top: 10px;
 }
 
 #list-item-display {

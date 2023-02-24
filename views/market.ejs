@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs') %>
+<header>
+    <h1>Market Data for <%=marketData.name%></h1>
+</header>
+<body>
+    <dl id="market-data">
+        <dt>Company Name (Ticker Symbol)</dt>
+        <dd><%=marketData.name%> (<%=marketData.ticker%>)</dd>
+        <dt>Exchange</dt>
+        <dd><%=marketData.exchange_long%> (<%=marketData.exchange_short%>)</dd>
+        <dt>Current Price</dt>
+        <dd>$<%=marketData.price%></dd>
+        <dt>Market Cap</dt>
+        <dd>$<%=marketData.market_cap%></dd>
+        <dt>Day Change</dt>
+        <dd>$<%=marketData.day_change%></dd>
+        <dt>Day High</dt>
+        <dd>$<%=marketData.day_high%></dd>
+        <dt>Day Low</dt>
+        <dd>$<%=marketData.day_low%></dd>
+        <dt>52 Week High</dt>
+        <dd>$<%=marketData['52_week_high']%></dd>
+        <dt>52 Week Low</dt>
+        <dd>$<%=marketData['52_week_low']%></dd>
+        <dt>Volume</dt>
+        <dd><%=marketData.volume%> Trades</dd>
+    </dl>
+</body>

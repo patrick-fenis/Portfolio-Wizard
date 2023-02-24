@@ -7,7 +7,9 @@ router.get('/explore/:tickerSymbol', (req, res) => {
         return response.json()
     }).then((json) => {
         stockData = json.data[0]
-        res.send(stockData)
+        res.render('market.ejs', {
+            marketData: stockData
+        })
     },
     (err) => {
         console.log('err.message')
