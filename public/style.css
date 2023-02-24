@@ -30,7 +30,7 @@ button {
 .header {
     text-align: center;
     border: 2px solid gray;
-    background-color: azure;
+    background-image: url(https://i.imgur.com/A50eSpr.png);
 }
 
 .nav_table {
@@ -63,6 +63,7 @@ li {
 #list-display {
     border: 1px black ridge;
     padding-left: 5px;
+    background-image: url(https://i.imgur.com/A50eSpr.png);
 }
 
 input[type=text] {
@@ -94,6 +95,15 @@ input[type=number] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+#ticker-buttons {
+    border-radius: 12px;
+}
+
+#total-value {
+    display: inline-flex;
+    text-align: right;
 }
 
 dt {

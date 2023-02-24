@@ -1,13 +1,14 @@
 <%- include ('./partials/header.ejs') %> 
-<header>
+<header class="home-page">
     <h1 id="overview-header">Portfolio Overview</h1>
 </header>
-<body>
+<body class="home-page">
     <div id="list-display">
         <% for(let i = 0; i < currentHoldings.length; i++) { %>
         <div id="list-item-display">
             <h2><a href="/overview/<%=currentHoldings[i]._id%>"><button id="ticker-buttons"><%=currentHoldings[i].tickerSymbol%></button></a></h2>
             <h3>Shares: <%=currentHoldings[i].quantity%></h3>
+            <span id="total-value">Total value: $<%=currentHoldings[i].quantity *= currentHoldings[i].purchasePrice%></span>
         </div>
         <% } %>
     </div>
