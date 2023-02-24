@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Holdings = require('../models/portfolio.js');
 
-router.get('/overview', (req, res) => {
+router.get('/', (req, res) => {
     Holdings.find((err, holdings) => {
         if(err) {
             console.log(err.message)
