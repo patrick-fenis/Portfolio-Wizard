@@ -3,10 +3,12 @@
     <h1 id="overview-header">Portfolio Overview</h1>
 </header>
 <body>
-    <div>
+    <div id="list-display">
         <% for(let i = 0; i < currentHoldings.length; i++) { %>
-        <h2><a href="/overview/<%=currentHoldings[i]._id%>"><%=currentHoldings[i].tickerSymbol%></a></h2>
-        <h3>Shares: <%=currentHoldings[i].quantity%></h3>
+        <div id="list-item-display">
+            <h2><a href="/overview/<%=currentHoldings[i]._id%>"><button id="ticker-buttons"><%=currentHoldings[i].tickerSymbol%></button></a></h2>
+            <h3>Shares: <%=currentHoldings[i].quantity%></h3>
+        </div>
         <% } %>
     </div>
 </body>

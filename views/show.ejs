@@ -9,10 +9,11 @@
     </div>
 </body>
 <footer>
-    <span><a href="/overview/<%=stockInfo._id%>/edit"><button>Adjust Position</button></a></span>
-    <span>
-        <form action="/overview/<%=stockInfo._id%>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE">
+    <span class="footer-buttons"><a href="/overview/<%=stockInfo._id%>/edit"><button>Adjust Position</button></a></span>
+    <span class="footer-buttons">
+        <form class="liq-button" action="/overview/<%=stockInfo._id%>?_method=DELETE" method="POST">
+            <input class="liq-button" type="submit" value="Liquidate">
         </form>
     </span>
+    <span class="footer-buttons"><a href="/explore/<%=stockInfo.tickerSymbol%>"><button>Market Data</button></a></span>
 </footer>

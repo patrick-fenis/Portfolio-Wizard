@@ -1,3 +1,32 @@
+html {
+    background-image: url(https://i.imgur.com/A50eSpr.png);
+    background-size: cover;
+}
+
+body {
+    font-size: 20px;
+    text-shadow: gainsboro 1px 0 10px;
+    margin-left: 10%;
+    margin-right:10%
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    background-image: url(https://i.imgur.com/6ndv51e.png);
+    color: azure;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.liq-button {
+    width: 150px;
+    height: 50px;
+    background-image: url(https://i.imgur.com/6ndv51e.png);
+    color: azure;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .header {
     text-align: center;
     border: 2px solid gray;
@@ -29,4 +58,55 @@ li {
 
 .stock-info {
     text-align: center;
+}
+
+#list-display {
+    border: 1px black ridge;
+    padding-left: 5px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+  input[type=submit] {
+    width: 100%;
+    background-image: url(https://i.imgur.com/6ndv51e.png);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#list-item-display {
+    border-bottom: 1px black inset;
+}
+
+footer {
+    display: inline-flex;
+    margin: 5%;
+    align-items: center;
+}
+
+.footer-buttons {
+    padding-left: 20px;
+    padding-right: 20px;
 }

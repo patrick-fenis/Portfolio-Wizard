@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const mongoURI = process.env.MONGOURI
 const PORT = process.env.PORT
 const stockController = require('./controllers/stocks.js')
+const dataController = require('./controllers/stockData.js')
 
 ///  Middleware  ///
 
@@ -17,6 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/public', express.static('public'))
 app.use(stockController)
+app.use(dataController)
 
 ///  Model Import  ///
 
